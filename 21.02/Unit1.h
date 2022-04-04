@@ -7,6 +7,11 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.ImgList.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <Vcl.Menus.hpp>
 #include<vector>
 #include<string>
 //---------------------------------------------------------------------------
@@ -45,10 +50,19 @@ __published:	// IDE-managed Components
 	TLabel *Label6;
 	TLabel *LabelCount;
 	TLabel *Label7;
+	TImageList *ImageList1;
+	TOpenDialog *OpenDialog1;
+	TSaveDialog *SaveDialog1;
+	TButton *ButtonSave;
+	TButton *ButtonOpen;
+	TStatusBar *StatusBar1;
+	TMainMenu *MainMenu1;
 	void __fastcall ShowRecord();
 	void __fastcall ButtonAddClick(TObject *Sender);
 	void __fastcall ButtonLeftClick(TObject *Sender);
 	void __fastcall ButtonRightClick(TObject *Sender);
+	void __fastcall ButtonOpenClick(TObject *Sender);
+	void __fastcall ButtonSaveClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

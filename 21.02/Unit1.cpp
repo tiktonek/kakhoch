@@ -60,4 +60,34 @@ void __fastcall TForm1::ButtonRightClick(TObject *Sender)
 	ShowRecord();
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::ButtonSaveClick(TObject *Sender)
+{
+	if(SaveDialog1->Execute()){
+		FILE * f = fopen(AnsiString(SaveDialog1->FileName).c_str(),"wb");
+		fwrite(&libdb[0],sizeof(library),total,f);
+		fclose(f);
+	}
+}
+
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::ButtonOpenClick(TObject *Sender)
+{
+	if(OpenDialog1->Execute()){
+	FILE * f = fopen(AnsiString(OpenDialog1->FileName).c_str(),"rb");
+	libdb.clear();
+		do{
+				library s;
+				fread(&s,sizeof(library),1,f);
+				if(feof(f)) break;
+				libdb.push_back(s);
+		}  while (!feof(f));
+		total=libdb.size();
+		curr=0;
+		ShowRecord();
+	}
+}
+//---------------------------------------------------------------------------
+
 
