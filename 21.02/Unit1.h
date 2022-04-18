@@ -14,6 +14,7 @@
 #include <Vcl.Menus.hpp>
 #include<vector>
 #include<string>
+#include<algorithm>
 //---------------------------------------------------------------------------
 
 class library{
@@ -23,7 +24,19 @@ class library{
 		int year;
 		int number;
 		char email[100];
+
+		bool friend operator==(const library &a, const library &b){
+			return(
+			strcmp(a.name,b.name)==0 ||
+			strcmp(a.faculty,b.faculty)==0 ||
+			strcmp(a.email,b.email)==0 ||
+			a.year==b.year ||
+			a.number==b.number
+			);
+		}
 };
+
+
 
 extern int curr, total;
 extern std::vector <library> libdb;
@@ -49,20 +62,33 @@ __published:	// IDE-managed Components
 	TLabel *LabelCurrent;
 	TLabel *Label6;
 	TLabel *LabelCount;
-	TLabel *Label7;
 	TImageList *ImageList1;
 	TOpenDialog *OpenDialog1;
 	TSaveDialog *SaveDialog1;
 	TButton *ButtonSave;
 	TButton *ButtonOpen;
-	TStatusBar *StatusBar1;
-	TMainMenu *MainMenu1;
+	TLabel *Label7;
+	TButton *ButtonDelete;
+	TButton *ButtonSearch;
+	TEdit *EditSearch;
+	TButton *ButtonConfirm;
+	TButton *ButtonCancel;
+	TCheckBox *CheckBox1;
+	TCheckBox *CheckBox2;
+	TCheckBox *CheckBox3;
+	TCheckBox *CheckBox4;
+	TCheckBox *CheckBox5;
 	void __fastcall ShowRecord();
 	void __fastcall ButtonAddClick(TObject *Sender);
 	void __fastcall ButtonLeftClick(TObject *Sender);
 	void __fastcall ButtonRightClick(TObject *Sender);
 	void __fastcall ButtonOpenClick(TObject *Sender);
 	void __fastcall ButtonSaveClick(TObject *Sender);
+	void __fastcall N2Click(TObject *Sender);
+	void __fastcall N3Click(TObject *Sender);
+	void __fastcall ButtonDeleteClick(TObject *Sender);
+	void __fastcall ButtonSearchClick(TObject *Sender);
+	void __fastcall ButtonConfirmClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

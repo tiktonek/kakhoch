@@ -4,7 +4,7 @@ object Form1: TForm1
   Caption = #1047#1072#1087#1080#1089#1100' '#1074' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1091
   ClientHeight = 494
   ClientWidth = 618
-  Color = clGradientInactiveCaption
+  Color = clInactiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -246,29 +246,33 @@ object Form1: TForm1
   object CheckBox2: TCheckBox
     Left = 431
     Top = 120
-    Width = 18
+    Width = 97
     Height = 17
+    Caption = 'CheckBox2'
     TabOrder = 16
   end
   object CheckBox3: TCheckBox
     Left = 431
     Top = 182
-    Width = 18
+    Width = 97
     Height = 17
+    Caption = 'CheckBox3'
     TabOrder = 17
   end
   object CheckBox4: TCheckBox
     Left = 431
     Top = 244
-    Width = 18
+    Width = 97
     Height = 17
+    Caption = 'CheckBox4'
     TabOrder = 18
   end
   object CheckBox5: TCheckBox
     Left = 431
     Top = 306
-    Width = 18
+    Width = 97
     Height = 17
+    Caption = 'CheckBox5'
     TabOrder = 19
   end
   object ImageList1: TImageList

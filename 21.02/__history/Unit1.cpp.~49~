@@ -32,9 +32,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	ButtonOpen->Hint= "Открыть файл";
 	ButtonDelete->Hint= "Удалить";
 	ButtonSearch->Hint= "Поиск";
-	ButtonConfirm->Hint= "Подтвердить";
-	ButtonCancel->Hint= "Отмена";
-
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonAddClick(TObject *Sender)
@@ -44,10 +41,6 @@ void __fastcall TForm1::ButtonAddClick(TObject *Sender)
 	EditCourse->Enabled= true;
 	EditNumber->Enabled= true;
 	EditEmail->Enabled= true;
-	ButtonDelete->Visible= true;
-	ButtonSave->Visible= true;
-	ButtonSearch->Visible= true;
-	EditSearch->Visible= true;
 	ButtonConfirm->Visible= true;
 	ButtonCancel->Visible= true;
 }
@@ -143,28 +136,14 @@ void __fastcall TForm1::ButtonSearchClick(TObject *Sender)
 {
 	library s;
 	std::vector<library>::iterator p;
-	if (CheckBox1->Checked == true) {
-	   strcpy(s.name,AnsiString(EditSearch->Text).c_str());
-	}
-	if (CheckBox2->Checked == true) {
-	   strcpy(s.faculty,AnsiString(EditSearch->Text).c_str());
-	}
-	if (CheckBox3->Checked == true) {
-	   s.year = EditSearch->Text.ToInt();
-	}
-	if (CheckBox4->Checked == true) {
-	   s.number = EditSearch->Text.ToInt();
-	}
-	if (CheckBox5->Checked == true) {
-	   strcpy(s.email,AnsiString(EditSearch->Text).c_str());
-	}
-
+	strcpy(s.name,AnsiString(EditSearch->Text).c_str());
+	strcpy(s.faculty,AnsiString(EditSearch->Text).c_str());
+	strcpy(s.email,AnsiString(EditSearch->Text).c_str());
 	p=std::find(libdb.begin(),libdb.end(),s);
 	curr=p-libdb.begin();
 	if(curr<total) ShowRecord();
 }
 //---------------------------------------------------------------------------
-
 
 
 
@@ -177,7 +156,7 @@ if (EditName->Text == ""|| EditFaculty->Text == ""|| EditCourse->Text == ""|| Ed
 	strcpy(libdb[total].name,AnsiString(EditName->Text).c_str());
 	strcpy(libdb[total].faculty,AnsiString(EditFaculty->Text).c_str());
 	libdb[total].year =  EditCourse->Text.ToInt();
-	libdb[total].number =  EditNumber->Text.ToInt();
+    libdb[total].number =  EditNumber->Text.ToInt();
 	strcpy(libdb[total].email,AnsiString(EditEmail->Text).c_str());
 	curr=total;
 	total++;
